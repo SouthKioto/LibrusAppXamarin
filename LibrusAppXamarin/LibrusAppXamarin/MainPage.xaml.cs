@@ -14,5 +14,13 @@ namespace LibrusAppXamarin
         {
             InitializeComponent();
         }
+
+        private void LoginAndGoToMainPage(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(login_entry.Text) || String.IsNullOrEmpty(haslo_entry.Text))
+            {
+
+            }
+        }
     }
 }
