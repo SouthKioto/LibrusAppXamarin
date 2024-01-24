@@ -19,7 +19,7 @@ namespace LibrusAppXamarin
         {
             if(String.IsNullOrEmpty(login_entry.Text) || String.IsNullOrEmpty(haslo_entry.Text))
             {
-
+                
             }
         }
     }
