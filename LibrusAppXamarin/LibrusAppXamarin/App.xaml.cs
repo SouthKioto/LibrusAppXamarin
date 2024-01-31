@@ -1,4 +1,5 @@
 ﻿using LibrusAppXamarin.Data;
+using LibrusAppXamarin.Pages;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -28,7 +29,7 @@ namespace LibrusAppXamarin
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

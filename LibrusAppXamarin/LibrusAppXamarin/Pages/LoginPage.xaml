@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LibrusAppXamarin.Pages.LoginPage" 
+             BackgroundColor="#3e3e3e" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Login:" TextColor="White" FontSize="25" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="loginEntry" TextColor="LightGray" WidthRequest="200"/>
+                <Label Text="Hasło:" TextColor="White" FontSize="25" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="passwordEntry" TextColor="LightGray" WidthRequest="200"/>
+
+                <Button Text="Zaloguj" Clicked="Login_Click" BackgroundColor="CadetBlue"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

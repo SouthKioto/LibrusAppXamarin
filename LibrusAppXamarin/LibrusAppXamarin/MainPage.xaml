@@ -1,19 +1,137 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LibrusAppXamarin.MainPage">
+             x:Class="LibrusAppXamarin.MainPage" NavigationPage.HasNavigationBar="False" >
 
-    <StackLayout BackgroundColor="Gray">
-        <StackLayout Spacing="10" Padding="20">
-            <Label Text="Login:" HorizontalOptions="CenterAndExpand"
-                   FontSize="20"/>
-            <Entry x:Name="login_entry"/>
-            <Label Text="Haslo:" HorizontalOptions="CenterAndExpand"
-                   FontSize="20"/>
-            <Entry x:Name="haslo_entry"/>
-            <Button Text="ZALOGUJ"
-                    Clicked="LoginAndGoToMainPage"/>
-        </StackLayout>
-    </StackLayout>
+    <ContentPage IconImageSource="home.png" BackgroundColor="#3e3e3e">
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Oceny ucznia" HorizontalOptions="Center" Margin="0,10,0,0" FontSize="20" TextColor="White"/>
+                <ListView x:Name="UserScores" RowHeight="200" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" BackgroundColor="#3e3e3e">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Padding="0" BackgroundColor="Transparent" VerticalOptions="Center" Grid.RowSpan="3">
+                                            <Image Source="user.png"/>
+                                        </Frame>
+                                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                                            <Label Text="{Binding Date,StringFormat='{{}{0:dd.MM.yyyy}'}" TextColor="White"/>
+                                        </StackLayout>
+                                        <Label Text="Dodano ocenę" Grid.Row="1" Grid.Column="1" TextColor="White"/>
+                                        <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#3e3e3e" CornerRadius="15" Padding="5" Margin="10">
+                                            <Grid >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="{Binding Value}" Grid.RowSpan="2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
+                                                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                                    <Label Text="{Binding SubjectName}" TextColor="White"/>
+                                                    <Label Text="{Binding Date, StringFormat='{{}{0:dd.MM}'}" TextColor="White"/>
+                                                </StackLayout>
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Description}" MaxLines="1" LineBreakMode="TailTruncation" TextColor="White"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
 
-</ContentPage>
+        </ContentPage.Content>
+    </ContentPage>
+    <TabbedPage IconImageSource="grades.png" BarBackgroundColor="#3e3e3e" BackgroundColor="#3e3e3e" SelectedTabColor="White" UnselectedTabColor="DimGray">
+        <ContentPage Title="Okres 1">
+            <ContentPage.Content>
+                <ListView x:Name="UserGradesPeriod1" RowHeight="150" SelectionMode="None" Margin="0,10,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" BackgroundColor="#3e3e3e" Margin="5">
+                                    <Grid BindingContext="{Binding}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding [0]}" LineBreakMode="TailTruncation" MaxLines="1" FontSize="20" VerticalOptions="Center" TextColor="White"/>
+                                        <Label Text="{Binding [1]}" Grid.Row="1" TextColor="white" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentPage.Content>
+        </ContentPage>
+        <ContentPage Title="Okres 2">
+            <ContentPage.Content>
+                <ListView x:Name="UserGradesPeriod2" RowHeight="150" SelectionMode="None" Margin="0,10,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" BackgroundColor="#3e3e3e" Margin="5">
+                                    <Grid BindingContext="{Binding}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding [0]}" LineBreakMode="TailTruncation" MaxLines="1" TextColor="White"/>
+                                        <Label Text="{Binding [1]}" Grid.Row="1" TextColor="white"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentPage.Content>
+        </ContentPage>
+    </TabbedPage>
+    <ContentPage IconImageSource="add.png" BackgroundColor="#3e3e3e">
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Dodaj ocenę" HorizontalOptions="Center" Margin="0,10,0,0" FontSize="Large" TextColor="White"/>
+                <StackLayout Margin="10,20,10,0">
+                    <Label Text="Wyberz kategorię" TextColor="white"/>
+                    <Picker x:Name="SubjectNamePicker">
+                        <Picker.Items>
+                            <x:String></x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Margin="10,20,10,0">
+                    <Label Text="Wyberz ocenę" TextColor="white"/>
+                    <Picker x:Name="ValuePicker">
+                        <Picker.Items>
+                            <x:String></x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <StackLayout Margin="10,20,10,0">
+                    <Label Text="Dodaj opis" TextColor="white"/>
+                    <Editor x:Name="DescriptionEntry"/>
+                </StackLayout>
+                <Frame CornerRadius="15" Padding="5">
+                    <Button Text="Dodaj ocenę" BackgroundColor="White"/>
+                </Frame>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+</TabbedPage>
