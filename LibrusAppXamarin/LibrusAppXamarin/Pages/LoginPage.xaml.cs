@@ -28,6 +28,7 @@ namespace LibrusAppXamarin.Pages
                 Password = "admin",
                 IsTeacher = true
             };
+            await App.Database.InsertUser(user);
         }
 
         private async void LogiClickCheckPerson(object sender, EventArgs e)
