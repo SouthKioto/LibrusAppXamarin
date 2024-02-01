@@ -23,24 +23,24 @@ namespace LibrusAppXamarin
 
         public async void UploadData()
         {
-            UserScores.ItemsSource = await App.DataBase.GetGrades();
+            UserScores.ItemsSource = await App.Database.GetGrades();
 
             List<List<string>> period1Grades = new List<List<string>>();
             List<List<string>> period2Grades = new List<List<string>>();
 
-            var subjects = await App.DataBase.GetSubjects();
+            var subjects = await App.Database.GetSubjects();
             foreach (var subject in subjects)
             {
                 List<string> row = new List<string>();
 
-                var GradesPeriodOne = await App.DataBase.GetGrades(this.user.UserId, subject.SubjectId, "Okres 1");
+                var GradesPeriodOne = await App.Database.GetGrades(this.user.User_id, subject.Subject_id, "Okres 1");
                 string GradesPeriodOneText = "";
                 foreach (var score in GradesPeriodOne)
                 {
                     GradesPeriodOneText += score.Score + " ";
                 }
                 row.Add(GradesPeriodOneText);
-                row.Add(subject.SubjectName);
+                row.Add(subject.Name);
 
                 period1Grades.Add(row);
             }
@@ -49,14 +49,14 @@ namespace LibrusAppXamarin
             {
                 List<string> row = new List<string>();
 
-                var GradesPeriodTwo = await App.Database.GetGrades(this.user.User_id, subject.SubjectId, "Okres 2");
+                var GradesPeriodTwo = await App.Database.GetGrades(this.user.User_id, subject.Subject_id, "Okres 2");
                 string GradesPeriodTwoText = "";
                 foreach (var score in GradesPeriodTwo)
                 {
                     GradesPeriodTwoText += score.Score + " ";
                 }
                 row.Add(GradesPeriodTwoText);
-                row.Add(subject.SubjectName);
+                row.Add(subject.Name);
 
                 period2Grades.Add(row);
 
@@ -101,7 +101,7 @@ namespace LibrusAppXamarin
             };
 
 
-            await App.DataBase.InsertGrade(grade);
+            await App.Database.InsertGrade(grade);
 
             UploadData();
         }

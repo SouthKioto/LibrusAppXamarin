@@ -11,15 +11,15 @@ namespace LibrusAppXamarin
 
     public partial class App : Application
     {
-        static Database database;
+        static DataBase database;
 
-        public static Database Database
+        public static DataBase Database
         {
             get
             {
                 if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "librusApp.db3"));
+                    database = new DataBase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "librusApp.db3"));
                 }
                 return database;
             }
