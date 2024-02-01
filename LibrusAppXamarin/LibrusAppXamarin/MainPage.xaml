@@ -36,10 +36,10 @@
                                                     <RowDefinition/>
                                                 </Grid.RowDefinitions>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
-                                                <Label Text="{Binding Value}" Grid.RowSpan="2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
+                                                <Label Text="{Binding Score}" Grid.RowSpan="2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontSize="40"/>
                                                 <StackLayout Orientation="Horizontal" Grid.Column="1">
                                                     <Label Text="{Binding SubjectName}" TextColor="White"/>
                                                     <Label Text="{Binding Date, StringFormat='{{}{0:dd.MM}'}" TextColor="White"/>
@@ -111,7 +111,11 @@
                     <Label Text="Wyberz kategorię" TextColor="white"/>
                     <Picker x:Name="SubjectNamePicker">
                         <Picker.Items>
-                            <x:String></x:String>
+                            <x:String>Chemia</x:String>
+                            <x:String>Biologia</x:String>
+                            <x:String>Geografia</x:String>
+                            <x:String>WF</x:String>
+                            <x:String>Matematyka</x:String>
                         </Picker.Items>
                     </Picker>
                 </StackLayout>
@@ -119,7 +123,24 @@
                     <Label Text="Wyberz ocenę" TextColor="white"/>
                     <Picker x:Name="ValuePicker">
                         <Picker.Items>
-                            <x:String></x:String>
+                            <x:String>6</x:String>
+                            <x:String>6-</x:String>
+                            <x:String>5+</x:String>
+                            <x:String>5</x:String>
+                            <x:String>5-</x:String>
+                            <x:String>4+</x:String>
+                            <x:String>4</x:String>
+                            <x:String>4-</x:String>
+                            <x:String>3+</x:String>
+                            <x:String>3</x:String>
+                            <x:String>3-</x:String>
+                            <x:String>2+</x:String>
+                            <x:String>2</x:String>
+                            <x:String>2-</x:String>
+                            <x:String>1+</x:String>
+                            <x:String>1</x:String>
+                            <x:String>-</x:String>
+                            <x:String>+</x:String>
                         </Picker.Items>
                     </Picker>
                 </StackLayout>
@@ -127,8 +148,17 @@
                     <Label Text="Dodaj opis" TextColor="white"/>
                     <Editor x:Name="DescriptionEntry"/>
                 </StackLayout>
+                <StackLayout Margin="10,20,10,0">
+                    <Label Text="Wyberz okres" TextColor="white"/>
+                    <Picker x:Name="PeriodPicker">
+                        <Picker.Items>
+                            <x:String>Okres 1</x:String>
+                            <x:String>Okres 2</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
                 <Frame CornerRadius="15" Padding="5">
-                    <Button Text="Dodaj ocenę" BackgroundColor="White"/>
+                    <Button Text="Dodaj ocenę" BackgroundColor="White" Clicked="AddGrade"/>
                 </Frame>
             </StackLayout>
         </ContentPage.Content>
