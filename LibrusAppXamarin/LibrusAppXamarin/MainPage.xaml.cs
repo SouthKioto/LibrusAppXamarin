@@ -87,7 +87,6 @@ namespace LibrusAppXamarin
                 case "Matematyka":
                     subjectId = 5;
                     break;
-
             }
             Grade grade = new Grade()
             {
