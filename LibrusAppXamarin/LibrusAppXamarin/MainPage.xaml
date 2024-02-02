@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LibrusAppXamarin.MainPage" NavigationPage.HasNavigationBar="False" >
+             x:Class="LibrusAppXamarin.MainPage" NavigationPage.HasNavigationBar="False" 
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#3e3e3e">
 
-    <ContentPage IconImageSource="home.png" BackgroundColor="#3e3e3e">
+    <ContentPage IconImageSource="https://static.vecteezy.com/system/resources/previews/000/366/438/original/home-vector-icon.jpg" BackgroundColor="#3e3e3e">
         <ContentPage.Content>
             <StackLayout>
                 <Label Text="Oceny ucznia" HorizontalOptions="Center" Margin="0,10,0,0" FontSize="20" TextColor="White"/>
@@ -57,7 +60,7 @@
 
         </ContentPage.Content>
     </ContentPage>
-    <TabbedPage IconImageSource="grades.png" BarBackgroundColor="#3e3e3e" BackgroundColor="#3e3e3e" SelectedTabColor="White" UnselectedTabColor="DimGray">
+    <TabbedPage IconImageSource="https://icon-library.com/images/grades-icon/grades-icon-25.jpg" BarBackgroundColor="#3e3e3e" BackgroundColor="#3e3e3e" SelectedTabColor="White" UnselectedTabColor="DimGray">
         <ContentPage Title="Okres 1">
             <ContentPage.Content>
                 <ListView x:Name="UserGradesPeriod1" RowHeight="150" SelectionMode="None" Margin="0,10,0,0">
@@ -103,7 +106,7 @@
             </ContentPage.Content>
         </ContentPage>
     </TabbedPage>
-    <ContentPage IconImageSource="add.png" BackgroundColor="#3e3e3e">
+    <ContentPage IconImageSource="https://cdn3.iconfinder.com/data/icons/interface/100/add_button_2-512.png" BackgroundColor="#3e3e3e">
         <ContentPage.Content>
             <StackLayout>
                 <Label Text="Dodaj ocenę" HorizontalOptions="Center" Margin="0,10,0,0" FontSize="Large" TextColor="White"/>

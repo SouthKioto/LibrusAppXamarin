@@ -85,7 +85,7 @@ namespace LibrusAppXamarin
                     subjectId = 4;
                     break;
                 case "Matematyka":
-                    subjectId = 4;
+                    subjectId = 5;
                     break;
 
             }

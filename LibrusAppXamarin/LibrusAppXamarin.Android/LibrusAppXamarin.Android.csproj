@@ -87,9 +87,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LibrusAppXamarin\LibrusAppXamarin.csproj">
       <Project>{78396E5B-3691-4C97-B30C-9F2F158A6783}</Project>
