@@ -103,6 +103,11 @@ namespace LibrusAppXamarin
             await App.Database.InsertGrade(grade);
 
             UploadData();
+
+            PeriodPicker.SelectedIndex = -1;
+            SubjectNamePicker.SelectedIndex = -1;
+            ValuePicker.SelectedIndex = -1;
+            DescriptionEntry.Text = String.Empty;
         }
     }
 }
